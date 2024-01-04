@@ -1,0 +1,24 @@
+---
+import Social from "./Social.astro";
+
+const platform = "github";
+const username = "sabasako";
+---
+
+<footer>
+  <p>
+    Learn more about my projects on <Social
+      platform={platform}
+      username={username}
+    />
+    <Social platform="facebook" username="profile.php?id=100012712091424" />
+  </p>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>

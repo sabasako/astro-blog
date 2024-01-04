@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+
+const pageTitle = "About me";
+
+const identity = {
+  firstName: "Saba",
+  country: "Georgia",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "football"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const h1Color = "purple";
+const skillsColor = "green";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h1>{pageTitle}</h1>
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <h3>My skills are:</h3>
+  <ul class="blog-ul">
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
+
+<style define:vars={{ h1Color, skillsColor }}>
+  h1 {
+    color: var(--h1Color);
+    font-size: 4rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .skill {
+    color: var(--skillsColor);
+    font-weight: bold;
+  }
+</style>

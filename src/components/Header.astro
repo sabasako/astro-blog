@@ -1,0 +1,105 @@
+---
+import Navigation from "./Navigation.astro";
+---
+
+<script>
+  import "../scripts/menu.js";
+</script>
+
+<header>
+  <nav class="navigation">
+    <Navigation />
+  </nav>
+  <div class="hamburger">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="menu"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="close"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18 18 6M6 6l12 12"></path>
+    </svg>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: #c9c9c9;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .hamburger svg {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+
+  nav.toggle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.toggle {
+    display: none;
+  }
+
+  .close {
+    display: none;
+  }
+
+  .close.toggle {
+    display: block;
+  }
+
+  @media screen and (max-width: 500px) {
+    nav {
+      display: none;
+    }
+
+    .menu {
+      display: block;
+    }
+
+    .hamburger {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      padding: 20px;
+    }
+  }
+</style>
